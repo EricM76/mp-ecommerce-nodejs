@@ -70,18 +70,29 @@ app.post("/buy", function (req, res) {
       },
     ],
     external_reference: "menaericdaniel@gmail.com",
+    back_urls: {
+      success : host + '/success',
+      pending : host + '/pending',
+      failure : host + '/failure'
+    },
   };
+
   mercadopago.preferences
     .create(preference)
     .then(function (response) {
       global.id = response.body.id;
       global.init_point = response.body.init_point;
       //console.log(response);
-      return res.render("confirm",{
-        init_point : response.body.init_point
+      return res.render("confirm", {
+        init_point: response.body.init_point,
       });
     })
     .catch((error) => console.log(error));
 });
+
+app.get('/success', (req,res)=>res.render('success'));
+app.get('/pending', (req,res)=>res.render('pending'))
+app.get('/failure', (req,res)=>res.render('failure'))
+
 
 app.listen(port);
