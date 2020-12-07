@@ -104,7 +104,7 @@ app.get('/failure', (req,res)=>{
 });
 
 app.post('/notifications',(req,res)=> {
-  console.log(req.body)
+  console.log('webhook',req.body)
   res.status(200).end('Ok')
 })
 
