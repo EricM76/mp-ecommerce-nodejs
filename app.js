@@ -75,7 +75,7 @@ app.post("/buy", function (req, res) {
       pending : host + '/pending',
       failure : host + '/failure'
     },
-    notification_url: host + '/notications',
+    notification_url: host + '/notifications',
     auto_return : 'approved',
   };
 
@@ -105,8 +105,7 @@ app.get('/failure', (req,res)=>{
 
 app.post('/notifications',(req,res)=> {
   console.log(req.body)
-  //res.status(200).end('Ok')
-  res.send(req.body)
+  res.status(200).end('Ok')
 })
 
 app.listen(port);
