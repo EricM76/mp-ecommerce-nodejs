@@ -75,7 +75,8 @@ app.post("/buy", function (req, res) {
       pending : host + '/pending',
       failure : host + '/failure'
     },
-    notifaction_url: host + '/notications'
+    notification_url: host + '/notications',
+    auto_return : 'approved',
   };
 
   mercadopago.preferences
@@ -93,15 +94,12 @@ app.post("/buy", function (req, res) {
 
 
 app.get('/success', (req,res)=>{
-  console.log(req.query)
   res.render('success')
 });
 app.get('/pending', (req,res)=>{
-  console.log(req.query)
   res.render('pending')
 });
 app.get('/failure', (req,res)=>{
-  console.log(req.query)
   res.render('failure')
 });
 
