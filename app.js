@@ -94,7 +94,6 @@ app.post("/buy", function (req, res) {
 
 
 app.get('/success', (req,res)=>{
-  console.log(req.query)
   res.render('success',{
     payment_type : req.query.payment_type,
     external_reference : req.query.external_reference,
