@@ -94,7 +94,12 @@ app.post("/buy", function (req, res) {
 
 
 app.get('/success', (req,res)=>{
-  res.render('success')
+  console.log(req.query)
+  res.render('success',{
+    payment_type : req.query.payment_type,
+    external_reference : req.query.external_reference,
+    collection_id : req.query.collection_id,
+  })
 });
 app.get('/pending', (req,res)=>{
   res.render('pending')
