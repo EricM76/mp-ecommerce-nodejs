@@ -105,7 +105,8 @@ app.get('/failure', (req,res)=>{
 
 app.post('/notifications',(req,res)=> {
   console.log(req.body)
-  res.status(200).end('Ok')
+  //res.status(200).end('Ok')
+  res.send(req.body)
 })
 
 app.listen(port);
