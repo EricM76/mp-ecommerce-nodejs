@@ -21,11 +21,17 @@ app.use(express.static("assets"));
 app.use("/assets", express.static(__dirname + "/assets"));
 
 app.get("/", function (req, res) {
-  res.render("home");
-});
+  res.render("home",{viewSegurity:'home'});
+}); 
 
 app.get("/detail", function (req, res) {
-  res.render("detail", req.query);
+  res.render("detail",
+  {tittle:req.query.tittle,
+  price : req.query.price,
+  unit : req.query.unit,
+  img : req.query.img,
+  viewSegurity : 'item',
+});
 });
 
 app.post("/buy", function (req, res) {
